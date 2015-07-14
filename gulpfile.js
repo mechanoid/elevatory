@@ -6,7 +6,14 @@
       gutil = require('gulp-util'),
       plumber = require('gulp-plumber'),
       sourcemaps = require('gulp-sourcemaps'),
-      stylus = require('gulp-stylus');
+      stylus = require('gulp-stylus'),
+      jade = require('gulp-jade');
+
+  gulp.task('styleguide', function() {
+    gulp.src('./styleguide/**/*.jade')
+      .pipe(jade({pretty: true, compileDebug: false, debug: false}).on('error', gutil.log))
+      .pipe(gulp.dest('./dist/styleguide'));
+  });
 
   gulp.task('styles', function () {
     gulp.src('./styles/*.styl')
@@ -17,7 +24,10 @@
       .pipe(gulp.dest('./dist'));
   });
 
-  gulp.task('watch', ['styles'], function() {
+  gulp.task('watch', ['styles', 'styleguide'], function() {
     gulp.watch('./styles/**/*.style', ['styles']);
+    gulp.watch('./styleguide/**/*', ['styleguide']);
   });
+
+  gulp.task('default', ['watch']);
 }());
