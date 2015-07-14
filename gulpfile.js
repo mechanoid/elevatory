@@ -5,15 +5,16 @@
   var gulp = require('gulp'),
       gutil = require('gulp-util'),
       plumber = require('gulp-plumber'),
+      sourcemaps = require('gulp-sourcemaps'),
       stylus = require('gulp-stylus');
 
   gulp.task('styles', function () {
-    gulp.src('./styles/*')
+    gulp.src('./styles/*.styl')
       .pipe(plumber())
       .pipe(sourcemaps.init())
       .pipe(stylus().on('error', gutil.log))
       .pipe(sourcemaps.write('.'))
-      .pipe(gulp.dest('./dist/css'));
+      .pipe(gulp.dest('./dist'));
   });
 
   gulp.task('watch', ['styles'], function() {
