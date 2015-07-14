@@ -7,7 +7,8 @@
       plumber = require('gulp-plumber'),
       sourcemaps = require('gulp-sourcemaps'),
       stylus = require('gulp-stylus'),
-      jade = require('gulp-jade');
+      jade = require('gulp-jade'),
+      webserver = require('gulp-webserver');
 
   gulp.task('style-guide', function() {
     gulp.src('./style-guide/**/*.jade')
@@ -27,6 +28,15 @@
   gulp.task('watch', ['styles', 'style-guide'], function() {
     gulp.watch('./styles/**/*.style', ['styles']);
     gulp.watch('./style-guide/**/*', ['style-guide']);
+  });
+
+  gulp.task('serve', function() {
+    gulp.src('dist')
+      .pipe(webserver({
+        livereload: true,
+        directoryListing: true,
+        open: 'http://localhost:8000/style-guide/index.html'
+      }));
   });
 
   gulp.task('default', ['watch']);
