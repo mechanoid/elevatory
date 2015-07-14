@@ -9,10 +9,10 @@
       stylus = require('gulp-stylus'),
       jade = require('gulp-jade');
 
-  gulp.task('style_guide', function() {
-    gulp.src('./style_guide/**/*.jade')
+  gulp.task('style-guide', function() {
+    gulp.src('./style-guide/**/*.jade')
       .pipe(jade({pretty: true, compileDebug: false, debug: false}).on('error', gutil.log))
-      .pipe(gulp.dest('./dist/style_guide'));
+      .pipe(gulp.dest('./dist/style-guide'));
   });
 
   gulp.task('styles', function () {
@@ -24,9 +24,9 @@
       .pipe(gulp.dest('./dist'));
   });
 
-  gulp.task('watch', ['styles', 'style_guide'], function() {
+  gulp.task('watch', ['styles', 'style-guide'], function() {
     gulp.watch('./styles/**/*.style', ['styles']);
-    gulp.watch('./styleguide/**/*', ['style_guide']);
+    gulp.watch('./style-guide/**/*', ['style-guide']);
   });
 
   gulp.task('default', ['watch']);
