@@ -26,16 +26,16 @@
   });
 
   gulp.task('watch', ['styles', 'style-guide'], function() {
-    gulp.watch('./styles/**/*.style', ['styles']);
-    gulp.watch('./style-guide/**/*', ['style-guide']);
+    gulp.watch('./styles/**/*.styl', ['styles']);
+    gulp.watch('./style-guide/**/*.jade', ['style-guide']);
   });
 
   gulp.task('serve', function() {
-    gulp.src('dist')
+    gulp.src('.')
       .pipe(webserver({
         livereload: true,
         directoryListing: true,
-        open: 'http://localhost:8000/style-guide/index.html'
+        open: 'http://localhost:8000/dist/style-guide/index.html'
       }));
   });
 
