@@ -1,14 +1,24 @@
 .code-block
   margin 0
-  background: #b6b0ac;
-  // padding .8em
+  background #f5f2f0
   padding-left 2em
+  counter-reset: olcounter;
 
 .code-block-line
-  background: #f5f2f0;
   padding-left .5em
   padding-top .1em
   padding-bottom .1em
+  border-left 1px solid #fff
+  list-style-type none
+
+  &:before
+    position relative
+    left -1.8em
+
+    content: counter(olcounter);
+    counter-increment: olcounter;
+    color #c4c4bc
+
 
   &:first-of-type
     padding-top 1em
