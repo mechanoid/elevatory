@@ -1,5 +1,26 @@
 body {
-  color: #f00;
+  color: #000;
+}
+.card {
+  padding: 1em;
+  border-bottom: 3px solid #ececec;
+}
+.code-block {
+  margin: 0;
+  background: #b6b0ac;
+  padding-left: 2em;
+}
+.code-block-line {
+  background: #f5f2f0;
+  padding-left: 0.5em;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+}
+.code-block-line:first-of-type {
+  padding-top: 1em;
+}
+.code-block-line:last-of-type {
+  padding-bottom: 1em;
 }
 
 /*# sourceMappingURL=elevatory.css.map */

@@ -2,7 +2,10 @@ doctype html
 html
   head
     title elevatory styleguide
+    link(rel="stylesheet", href="../prism.css")
     link(rel="stylesheet", href="../elevatory.css")
   body
-    | fubar
-    script(url="../node_modules/structure-assertions/dist/structure-assertions.js")
+    include moleculars/index
+    
+    script(src="../prism.js")
+    //- script(src="../node_modules/structure-assertions/dist/structure-assertions.js")

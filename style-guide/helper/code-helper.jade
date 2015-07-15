@@ -1,0 +1,20 @@
+mixin code(lang)
+  ol.code-block
+    if block
+      - var backup, lines, i, line;
+      - backup = buf;
+      - buf = []
+      - block();
+      - lines = buf;
+      - buf = backup;
+      
+      - for (i in lines) {
+      -   if (lines.hasOwnProperty(i)) {
+      -     line = lines[i];
+      -     if (line.trim().length > 0) { 
+        li.code-block-line
+          code(class="language-#{lang}")
+            !=line
+      -     }
+      -   }
+      - }

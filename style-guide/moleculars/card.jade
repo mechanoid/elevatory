@@ -1,0 +1,17 @@
+include ../helper/code-helper
+
+article.card
+  header.card-header
+    h1 title
+    
+  .card-content
+    +code("javascript").
+      function(fabula) { 
+        // fubar
+        console.log(fabula);
+        fabula();
+        alert("for");
+        alert("boobies");
+      };
+    
+  footer.card-footer
