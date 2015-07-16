@@ -2,7 +2,23 @@ include ../helper/code-helper
 
 article.card
   header.card-header
-    h1 title
+    h1 A code example
+    
+  .card-content
+    +code("markup").
+      <article class="card">
+       <header class="card-header">
+         <h1>An example header</h1>
+       </header>
+       <div class="card-content"></div>
+       <footer class="card-footer"></footer>
+      </article>
+    
+  footer.card-footer
+
+article.card
+  header.card-header
+    h1 some further code
     
   .card-content
     +code("javascript").

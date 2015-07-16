@@ -1,35 +1,115 @@
+@font-face {
+  font-family: 'League Spartan';
+  src: url("./vendor/league-spartan-master/_webfonts/leaguespartan-bold.eot");
+  src: url("./vendor/league-spartan-master/_webfonts/leaguespartan-bold.eot?#iefix") format('embedded-opentype'), url("./vendor/league-spartan-master/_webfonts/leaguespartan-bold.woff2") format('woff2'), url("./vendor/league-spartan-master/_webfonts/leaguespartan-bold.woff") format('woff'), url("./vendor/league-spartan-master/_webfonts/leaguespartan-bold.ttf") format('truetype'), url("./vendor/league-spartan-master/_webfonts/leaguespartan-bold.svg#league_spartanbold") format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Junction';
+  src: url("./vendor/junction-master/webfonts/junction-bold.eot");
+  src: url("./vendor/junction-master/webfonts/junction-bold.eot?#iefix") format('embedded-opentype'), url("./vendor/junction-master/webfonts/junction-bold.woff") format('woff'), url("./vendor/junction-master/webfonts/junction-bold.ttf") format('truetype'), url("./vendor/junction-master/webfonts/junction-bold.svg#junctionbold") format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Junction';
+  src: url("./vendor/junction-master/webfonts/junction-light.eot");
+  src: url("./vendor/junction-master/webfonts/junction-light.eot?#iefix") format('embedded-opentype'), url("./vendor/junction-master/webfonts/junction-light.woff") format('woff'), url("./vendor/junction-master/webfonts/junction-light.ttf") format('truetype'), url("./vendor/junction-master/webfonts/junction-light.svg#junctionlight") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Junction';
+  src: url("./vendor/junction-master/webfonts/junction-regular.eot");
+  src: url("./vendor/junction-master/webfonts/junction-regular.eot?#iefix") format('embedded-opentype'), url("./vendor/junction-master/webfonts/junction-regular.woff") format('woff'), url("./vendor/junction-master/webfonts/junction-regular.ttf") format('truetype'), url("./vendor/junction-master/webfonts/junction-regular.svg#junctionregular") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+h1,
+h2,
+h3 {
+  font-family: 'League Spartan', helvetica, arial;
+}
+* {
+  box-sizing: border-box;
+}
+html,
 body {
-  color: #000;
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+.main-backdrop {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: #a7a095 linear-gradient(135deg, #fff 0%, #d2cecb 25%, #a7a095 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.main-content {
+  padding: 1em;
 }
 .card {
-  padding: 1em;
-  border-bottom: 3px solid #ececec;
+  box-shadow: 0px 24px 50px 0px rgba(142,136,127,0.5);
+  background-color: #fff;
+  margin: 0 auto 1em auto;
+}
+.card .card-header h1 {
+  text-transform: uppercase;
+}
+.card .card-header,
+.card .card-footer {
+  padding: 1em 2em;
 }
 .code-block {
   margin: 0;
-  background: #f5f2f0;
   padding-left: 2em;
   counter-reset: olcounter;
+  overflow: scroll;
+  position: relative;
+}
+.code-block,
+.code-block:before {
+  background: #272822;
+}
+.code-block:before {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  position: absolute;
+  top: -0.3em;
+  left: 2em;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 .code-block-line {
   padding-left: 0.5em;
   padding-top: 0.1em;
   padding-bottom: 0.1em;
-  border-left: 1px solid #fff;
   list-style-type: none;
 }
 .code-block-line:before {
   position: relative;
-  left: -1.8em;
+  left: -1.5em;
   content: counter(olcounter);
   counter-increment: olcounter;
-  color: #c4c4bc;
+  color: #4e4e4a;
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
 }
 .code-block-line:first-of-type {
   padding-top: 1em;
 }
 .code-block-line:last-of-type {
   padding-bottom: 1em;
+}
+.code-block-line code[class*="language-"] {
+  color: #ff8fb4;
 }
 
 /*# sourceMappingURL=elevatory.css.map */

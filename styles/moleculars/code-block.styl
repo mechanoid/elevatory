@@ -1,23 +1,47 @@
 .code-block
   margin 0
-  background #f5f2f0
+
   padding-left 2em
   counter-reset: olcounter;
+
+  overflow scroll
+
+  position relative
+
+  &, &:before
+    background #272822
+
+  &:before
+    content ''
+    display inline-block
+    width 1em
+    height 1em
+
+    position absolute
+    top -.3em
+    left 2em
+
+    transform rotate(45deg)
+
+
+
+
 
 .code-block-line
   padding-left .5em
   padding-top .1em
   padding-bottom .1em
-  border-left 1px solid #fff
+  // border-left 1px solid #fff
   list-style-type none
 
   &:before
     position relative
-    left -1.8em
+    left -1.5em
 
     content: counter(olcounter);
     counter-increment: olcounter;
-    color #c4c4bc
+    color #4e4e4a
+    font-family Consolas, Monaco, 'Andale Mono', monospace;
 
 
   &:first-of-type
@@ -25,3 +49,7 @@
 
   &:last-of-type
     padding-bottom 1em
+
+  code[class*="language-"]
+    // background-color transparent
+    color #ff8fb4

@@ -14,7 +14,7 @@ mixin code(lang)
       -     if (line.trim().length > 0) { 
         li.code-block-line
           code(class="language-#{lang}")
-            !=line
+            =line
       -     }
       -   }
       - }

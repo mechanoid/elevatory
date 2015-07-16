@@ -2,10 +2,12 @@ doctype html
 html
   head
     title elevatory styleguide
-    link(rel="stylesheet", href="../prism.css")
+    link(rel="stylesheet", href="../vendor/prism.css")
     link(rel="stylesheet", href="../elevatory.css")
   body
-    include moleculars/index
+    .main-backdrop
+    .main-content
+      include moleculars/index
     
-    script(src="../prism.js")
+    script(src="../vendor/prism.js")
     //- script(src="../node_modules/structure-assertions/dist/structure-assertions.js")
