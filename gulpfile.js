@@ -2,14 +2,16 @@
 (function() {
   "use strict";
 
-  var gulp = require('gulp'),
+  var gulp = require('gulp-help')(require('gulp')),
       gutil = require('gulp-util'),
       plumber = require('gulp-plumber'),
       sourcemaps = require('gulp-sourcemaps'),
       autoprefixer = require('gulp-autoprefixer'),
       stylus = require('gulp-stylus'),
       jade = require('gulp-jade'),
-      webserver = require('gulp-webserver');
+      webserver = require('gulp-webserver'),
+      // vary = require('vary'),
+      cors = require('cors');
 
   gulp.task('style-guide', function() {
     gulp.src('./style-guide/**/*.jade')
@@ -40,7 +42,8 @@
       .pipe(webserver({
         livereload: true,
         directoryListing: true,
-        open: 'http://localhost:8000/dist/style-guide/index.html'
+        open: 'http://localhost:8000/dist/style-guide/index.html',
+        middleware: [cors()]
       }));
   });
 
