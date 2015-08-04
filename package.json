@@ -26,6 +26,7 @@
     "vary": "^1.0.1"
   },
   "dependencies": {
+    "normalize": "^0.3.1",
     "prismjs": "0.0.1",
     "structure-assertions": "^0.2.1"
   }

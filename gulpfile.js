@@ -8,9 +8,9 @@
       sourcemaps = require('gulp-sourcemaps'),
       autoprefixer = require('gulp-autoprefixer'),
       stylus = require('gulp-stylus'),
+      normalize = require('normalize'),
       jade = require('gulp-jade'),
       webserver = require('gulp-webserver'),
-      // vary = require('vary'),
       cors = require('cors');
 
   gulp.task('style-guide', function() {
@@ -23,7 +23,10 @@
     gulp.src('./styles/*.styl')
       .pipe(plumber())
       .pipe(sourcemaps.init())
-      .pipe(stylus().on('error', gutil.log))
+      .pipe(
+        stylus({include: normalize.path})
+         .on('error', gutil.log)
+      )
       .pipe(autoprefixer({
           browsers: ['last 2 versions'],
           cascade: false
@@ -47,5 +50,5 @@
       }));
   });
 
-  gulp.task('default', ['watch']);
+  gulp.task('default', ['watch', 'serve']);
 }());
