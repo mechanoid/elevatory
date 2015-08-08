@@ -1,0 +1,19 @@
+@define-mixin card-typography  {
+  & .card-headline {
+    /*font-weight: 100;*/
+    text-transform: uppercase;
+    /*text-align: center;*/
+  }
+}
+
+.card {
+  @mixin card-typography;
+  box-shadow: var(--card-shadow);
+  background-color: #fff;
+  margin: 0 auto 1em auto;
+
+  & .card-header,
+  & .card-footer {
+    padding: 1em 2em;
+  }
+}

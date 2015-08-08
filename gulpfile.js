@@ -2,16 +2,26 @@
 (function() {
   "use strict";
 
-  var gulp = require('gulp-help')(require('gulp')),
-      gutil = require('gulp-util'),
-      plumber = require('gulp-plumber'),
-      sourcemaps = require('gulp-sourcemaps'),
-      autoprefixer = require('gulp-autoprefixer'),
-      stylus = require('gulp-stylus'),
-      normalize = require('normalize'),
-      jade = require('gulp-jade'),
-      webserver = require('gulp-webserver'),
-      cors = require('cors');
+  var gulp = require('gulp-help')(require('gulp'))
+    , gutil = require('gulp-util')
+    , plumber = require('gulp-plumber')
+    , jade = require('gulp-jade')
+
+    // DEV WEBSERVER
+    , webserver = require('gulp-webserver')
+    , cors = require('cors')
+
+    // MIXED
+    , sourcemaps = require('gulp-sourcemaps')
+
+    // POST CSS AND PLUGINS
+    , postcss = require('gulp-postcss')
+    , autoprefixer = require('autoprefixer')
+    , mqpacker = require('css-mqpacker')
+    , atImport = require('postcss-import')
+    , cssvariables = require('postcss-css-variables')
+    , cssmixins = require('postcss-mixins')
+    , nestedcss = require('postcss-nested');
 
   gulp.task('style-guide', function() {
     gulp.src('./style-guide/**/*.jade')
@@ -20,23 +30,26 @@
   });
 
   gulp.task('styles', function () {
-    gulp.src('./styles/*.styl')
+    var processors = [
+      autoprefixer({browsers: ['last 1 version']})
+      , mqpacker
+      , atImport({glob: true})
+      , cssvariables
+      , cssmixins
+      // remeber to claim nested css as last, to make other modules in it work.
+      , nestedcss
+    ];
+
+    gulp.src('./styles/*.css')
       .pipe(plumber())
       .pipe(sourcemaps.init())
-      .pipe(
-        stylus({include: normalize.path})
-         .on('error', gutil.log)
-      )
-      .pipe(autoprefixer({
-          browsers: ['last 2 versions'],
-          cascade: false
-      }))
+      .pipe(postcss(processors).on('error', gutil.log))
       .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest('./dist'));
   });
 
   gulp.task('watch', ['styles', 'style-guide'], function() {
-    gulp.watch('./styles/**/*.styl', ['styles']);
+    gulp.watch('./styles/**/*.css', ['styles']);
     gulp.watch('./style-guide/**/*.jade', ['style-guide']);
   });
 

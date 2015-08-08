@@ -1,100 +1,139 @@
 @font-face {
-  font-family: 'League Spartan';
-  src: url("./vendor/league-spartan-master/_webfonts/leaguespartan-bold.eot");
-  src: url("./vendor/league-spartan-master/_webfonts/leaguespartan-bold.eot?#iefix") format('embedded-opentype'), url("./vendor/league-spartan-master/_webfonts/leaguespartan-bold.woff2") format('woff2'), url("./vendor/league-spartan-master/_webfonts/leaguespartan-bold.woff") format('woff'), url("./vendor/league-spartan-master/_webfonts/leaguespartan-bold.ttf") format('truetype'), url("./vendor/league-spartan-master/_webfonts/leaguespartan-bold.svg#league_spartanbold") format('svg');
-  font-weight: bold;
-  font-style: normal;
+    font-family: 'League Spartan';
+    src: url('./vendor/league-spartan-master/_webfonts/leaguespartan-bold.eot');
+    src: url('./vendor/league-spartan-master/_webfonts/leaguespartan-bold.eot?#iefix') format('embedded-opentype'),
+         url('./vendor/league-spartan-master/_webfonts/leaguespartan-bold.woff2') format('woff2'),
+         url('./vendor/league-spartan-master/_webfonts/leaguespartan-bold.woff') format('woff'),
+         url('./vendor/league-spartan-master/_webfonts/leaguespartan-bold.ttf') format('truetype'),
+         url('./vendor/league-spartan-master/_webfonts/leaguespartan-bold.svg#league_spartanbold') format('svg');
+    font-weight: bold;
+    font-style: normal;
 }
-h1,
-h2,
-h3 {
+h1, h2, h3 {
   font-family: 'League Spartan', helvetica, arial;
+  /*font-weight 900*/
 }
-* {
+*{
   box-sizing: border-box;
 }
-html,
-body {
+
+html, body {
   height: 100%;
 }
+
 body {
   margin: 0;
   padding: 0;
 }
-ul,
-li {
+
+ul, li {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
+
 .main-backdrop {
   position: fixed;
   z-index: -1;
+
   width: 100%;
   height: 100%;
-  background: #a7a095 linear-gradient(135deg, #fff 0%, #e4e0dc 35%);
+
+  background: #A7A095 linear-gradient(135deg, #FFF 0%, #e4e0dc 35%);
+
+  /* fix background gradient */
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-.main-content {
+.main-content{
   padding: 1em;
 }
+
 .card {
-  box-shadow: 0 1.5em 2em 0 rgba(142,136,127,0.3);
+  box-shadow: 0 1.5em 2em 0 rgba(142,136,127,.3);
   background-color: #fff;
   margin: 0 auto 1em auto;
 }
-.card .card-header .card-headline {
-  text-transform: uppercase;
+
+.card .card-headline {
+    /*font-weight: 100;*/
+    text-transform: uppercase;
+    /*text-align: center;*/
 }
-.card .card-header,
-.card .card-footer {
-  padding: 1em 2em;
+
+.card .card-header, .card .card-footer {
+    padding: 1em 2em;
 }
+
 .code-block {
   margin: 0;
+
   padding-left: 2em;
   counter-reset: olcounter;
+
   overflow: scroll;
+
   position: relative;
 }
-.code-block,
-.code-block:before {
-  background: #272822;
+
+.code-block, .code-block:before {
+    background: #272822;
 }
-.code-block:before {
-  content: '';
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  position: absolute;
-  top: -0.3em;
-  left: 2em;
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
+
+.code-block:before{
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    position: absolute;
+    top: -.3em;
+    left: 2em;
+    transform: rotate(45deg);
 }
+
+
+
+
 .code-block-line {
-  padding-left: 0.5em;
-  padding-top: 0.1em;
-  padding-bottom: 0.1em;
+  padding-left: .5em;
+  padding-top: .1em;
+  padding-bottom: .1em;
+  /*border-left 1px solid #fff*/
   list-style-type: none;
 }
+
+
+
+
 .code-block-line:before {
-  position: relative;
-  left: -1.5em;
-  content: counter(olcounter);
-  counter-increment: olcounter;
-  color: #4e4e4a;
-  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+    position: relative;
+    left: -1.5em;
+    content: counter(olcounter);
+    counter-increment: olcounter;
+    color: #4e4e4a;
+    font-family: Consolas, Monaco, 'Andale Mono', monospace;
 }
+
+
+
+
 .code-block-line:first-of-type {
-  padding-top: 1em;
+    padding-top: 1em;
 }
+
+
+
+
 .code-block-line:last-of-type {
-  padding-bottom: 1em;
+    padding-bottom: 1em;
 }
+
+
+
+
 .code-block-line code[class*="language-"] {
-  color: #ff8fb4;
+    /*background-color transparent*/
+    color: #ff8fb4;
 }
 
 /*# sourceMappingURL=elevatory.css.map */
