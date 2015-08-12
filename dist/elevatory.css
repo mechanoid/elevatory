@@ -9,9 +9,27 @@
     font-weight: bold;
     font-style: normal;
 }
+
+
+
+@font-face {
+    font-family: 'open_sansregular';
+    src: url('./vendor/opensans_regular/opensans-regular-webfont.eot');
+    src: url('./vendor/opensans_regular/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./vendor/opensans_regular/opensans-regular-webfont.woff2') format('woff2'),
+         url('./vendor/opensans_regular/opensans-regular-webfont.woff') format('woff'),
+         url('./vendor/opensans_regular/opensans-regular-webfont.ttf') format('truetype'),
+         url('./vendor/opensans_regular/opensans-regular-webfont.svg#open_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+* {
+  font-family: 'open_sansregular', helvetica, arial;
+}
+
 h1, h2, h3 {
   font-family: 'League Spartan', helvetica, arial;
-  /*font-weight 900*/
 }
 *{
   box-sizing: border-box;
@@ -50,19 +68,25 @@ ul, li {
 }
 
 .card {
-  box-shadow: 0 1.5em 2em 0 rgba(142,136,127,.3);
-  background-color: #fff;
+  /*background-color: #fff;*/
   margin: 0 auto 1em auto;
 }
 
 .card .card-headline {
+
     /*font-weight: 100;*/
     text-transform: uppercase;
+
     /*text-align: center;*/
 }
 
 .card .card-header, .card .card-footer {
-    padding: 1em 2em;
+    padding: .5em 2em;
+}
+
+.card .card-content.is-nested {
+    margin-left: 2em;
+    margin-right: 2em;
 }
 
 .code-block {
@@ -132,6 +156,7 @@ ul, li {
 
 
 .code-block-line code[class*="language-"] {
+
     /*background-color transparent*/
     color: #ff8fb4;
 }

@@ -8,12 +8,16 @@
 
 .card {
   @mixin card-typography;
-  box-shadow: var(--card-shadow);
-  background-color: #fff;
+  /*background-color: #fff;*/
   margin: 0 auto 1em auto;
 
   & .card-header,
   & .card-footer {
-    padding: 1em 2em;
+    padding: .5em 2em;
+  }
+
+  & .card-content.is-nested {
+    margin-left: 2em;
+    margin-right: 2em;
   }
 }
