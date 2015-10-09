@@ -19,7 +19,7 @@
   background-attachment: fixed;
 }
 .main-content{
-  padding: 1em;
+  /*padding: 1em;*/
 }
 
 @import 'moleculars/**/*'
